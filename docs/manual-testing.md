@@ -9,6 +9,7 @@ The accessibility widget was exercised manually against different static HTML ho
    - Verifies keyboard shortcut `Ctrl + Alt + A` opens/closes the panel.
    - Checks focus is returned to the launcher button after closing.
    - Toggles each control (contrast, text size, line spacing, filters, reduced motion) and confirms corresponding class or style is injected on `<html>`.
+   - Activates high contrast together with grayscale/sepia filters and verifies that both visual adjustments remain active.
 
 2. **Dark theme application page** (`examples/dark-theme.html`)
    - Body has `class="accessibility-widget-host-dark"` to demonstrate dark host mode.
@@ -21,5 +22,6 @@ The accessibility widget was exercised manually against different static HTML ho
 - Reset button reverts all controls to default state.
 - Local storage retains selections after page reload.
 - Destroying the widget via returned API removes injected classes and listeners.
+- Combined visual effects (contrast + filters) continue to apply after refresh and can be cleared via **Reset**.
 
 > Run these scenarios by serving the repository root (`npx serve .`) or opening the HTML files directly in a browser.

@@ -117,10 +117,26 @@
 }
 
 /* Theme adjustments injected onto the page */
+html {
+  --aw-widget-filter: none;
+}
+
+html.accessibility-widget-filtered {
+  filter: var(--aw-widget-filter) !important;
+}
+
 html.accessibility-widget-high-contrast {
-  filter: contrast(1.3) saturate(1.2);
   background-color: #000 !important;
   color: #fff !important;
+}
+
+html.accessibility-widget-high-contrast body {
+  background-color: #000 !important;
+  color: #fff !important;
+}
+
+html.accessibility-widget-high-contrast a {
+  color: #90cdf4 !important;
 }
 
 html.accessibility-widget-large-text {
@@ -133,14 +149,6 @@ html.accessibility-widget-text-xl {
 
 html.accessibility-widget-line-height {
   line-height: 1.8 !important;
-}
-
-html.accessibility-widget-filter-grayscale {
-  filter: grayscale(100%);
-}
-
-html.accessibility-widget-filter-sepia {
-  filter: sepia(60%);
 }
 
 html.accessibility-widget-reduce-motion *,

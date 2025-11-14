@@ -1,6 +1,6 @@
 # Erişilebilirlik Widget'ı
 
-Harici web sitelerine `<script>` etiketiyle eklenebilen, erişilebilirliği artırmaya yönelik yeniden kullanılabilir bir arayüz sunar. Bileşen; yüksek kontrast, metin boyutu, satır aralığı, renk filtreleri, animasyonları durdurma gibi kontroller içerir ve odak yönetimi, ARIA etiketleri ile yerelleştirme desteği sağlar.
+Harici web sitelerine `<script>` etiketiyle eklenebilen, erişilebilirliği artırmaya yönelik yeniden kullanılabilir bir arayüz sunar. Bileşen; yüksek kontrast, metin boyutu, satır aralığı, renk filtreleri, animasyonları durdurma gibi kontroller içerir ve odak yönetimi, ARIA etiketleri ile yerelleştirme desteği sağlar. Kontrast ve renk filtreleri birlikte kullanıldığında dahi görsel ayarlar aynı anda uygulanır.
 
 ## Hızlı Başlangıç
 

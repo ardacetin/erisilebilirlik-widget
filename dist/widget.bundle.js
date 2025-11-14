@@ -78,16 +78,6 @@
       type: 'boolean'
     },
     colorFilter: {
-      apply: value => {
-        const root = document.documentElement;
-        root.classList.remove('accessibility-widget-filter-grayscale', 'accessibility-widget-filter-sepia');
-        if (value === 'grayscale') {
-          root.classList.add('accessibility-widget-filter-grayscale');
-        }
-        if (value === 'sepia') {
-          root.classList.add('accessibility-widget-filter-sepia');
-        }
-      },
       defaultValue: 'none'
     },
     reduceMotion: {
@@ -102,6 +92,25 @@
     root.classList.toggle(className, Boolean(enabled));
   }
 
+  function updateDocumentFilters(currentState) {
+    const root = document.documentElement;
+    const filterSegments = [];
+
+    if (currentState.highContrast) {
+      filterSegments.push('contrast(1.35)', 'saturate(1.2)');
+    }
+
+    if (currentState.colorFilter === 'grayscale') {
+      filterSegments.push('grayscale(100%)');
+    } else if (currentState.colorFilter === 'sepia') {
+      filterSegments.push('sepia(60%)');
+    }
+
+    const filterValue = filterSegments.join(' ') || 'none';
+    root.style.setProperty('--aw-widget-filter', filterValue);
+    root.classList.toggle('accessibility-widget-filtered', filterValue !== 'none');
+  }
+
   function applyState(state) {
     Object.entries(stateConfig).forEach(([key, config]) => {
       const value = state[key];
@@ -111,6 +120,8 @@
         config.apply(value);
       }
     });
+
+    updateDocumentFilters(state);
   }
 
   function readPersistedState() {
@@ -507,12 +518,15 @@
         document.removeEventListener('keydown', handleShortcut);
         unsubscribeTheme();
         container.remove();
+        const root = document.documentElement;
         Object.keys(stateConfig).forEach(key => {
           const config = stateConfig[key];
           if (config.className) {
-            document.documentElement.classList.remove(config.className);
+            root.classList.remove(config.className);
           }
         });
+        root.classList.remove('accessibility-widget-filtered');
+        root.style.removeProperty('--aw-widget-filter');
       },
       getState: function () {
         return Object.assign({}, state);
