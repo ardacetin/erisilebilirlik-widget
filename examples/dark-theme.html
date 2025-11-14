@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="tr" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Erişilebilirlik Aracı – Karanlık Tema Örneği</title>
+    <link rel="stylesheet" href="../dist/widget.css" />
+    <style>
+      body {
+        font-family: 'Inter', system-ui, sans-serif;
+        margin: 0;
+        padding: 2rem 3rem 6rem;
+        background: radial-gradient(circle at top, #1f2937, #0f172a);
+        color: #e5e7eb;
+      }
+      body.accessibility-widget-host-dark h1 {
+        color: #f9fafb;
+      }
+      .card {
+        background: rgba(15, 23, 42, 0.6);
+        border-radius: 1.25rem;
+        padding: 2rem;
+        max-width: 50ch;
+        box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
+      }
+      a.link {
+        color: #38bdf8;
+      }
+    </style>
+  </head>
+  <body class="accessibility-widget-host-dark">
+    <main class="card" role="main">
+      <h1>Gece Modu Uygulaması</h1>
+      <p>
+        Bu örnek, koyu temalı uygulamalarda erişilebilirlik bileşeninin nasıl göründüğünü gösterir. Paneli açmak için butonu
+        kullanabilir veya <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>A</kbd> kısayoluna basabilirsiniz.
+      </p>
+      <p>
+        Daha fazla bilgi için <a class="link" href="#">dokümantasyona</a> göz atın.
+      </p>
+    </main>
+    <script src="../dist/widget.bundle.js"></script>
+    <script>
+      window.initAccessibilityWidget({ locale: 'tr' });
+    </script>
+  </body>
+</html>
