@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Accessibility Widget – Light Theme Example</title>
+    <link rel="stylesheet" href="../dist/widget.css" />
+    <style>
+      body {
+        font-family: 'Segoe UI', sans-serif;
+        margin: 0;
+        padding: 2rem 3rem 6rem;
+        background: linear-gradient(180deg, #f9fafb 0%, #ffffff 100%);
+        color: #1f2933;
+      }
+      h1 {
+        font-size: 2.5rem;
+      }
+      .hero {
+        max-width: 60ch;
+        line-height: 1.6;
+      }
+      button.cta {
+        margin-top: 1.5rem;
+        padding: 0.85rem 1.6rem;
+        background: #2563eb;
+        color: #fff;
+        border-radius: 999px;
+        border: none;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Inclusive Design Demo</h1>
+      <p class="hero">
+        This static page represents a light marketing landing page. Use the floating accessibility button to adjust contrast,
+        typography, and animation preferences without modifying the host site.
+      </p>
+      <button class="cta">Join the beta</button>
+    </main>
+    <script src="../dist/widget.bundle.js"></script>
+    <script>
+      window.initAccessibilityWidget({ locale: 'en' });
+    </script>
+  </body>
+</html>
